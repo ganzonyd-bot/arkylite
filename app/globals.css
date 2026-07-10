@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-cream: #ECE9E6;
+  --color-warm: #7D7873;
+  --color-warm-dark: #2B2926;
+  --color-warm-heading: #4A4743;
+  --color-warm-border: #D6D2CD;
+  --font-sans: var(--font-space);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #7D7873;
+  color: #FFFFFF;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero stagger */
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroFadeUp 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 100ms; }
+.hero-content > *:nth-child(2) { animation-delay: 200ms; }
+.hero-content > *:nth-child(3) { animation-delay: 300ms; }
+.hero-content > *:nth-child(4) { animation-delay: 400ms; }
+.hero-content > *:nth-child(5) { animation-delay: 500ms; }
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Section number slide-down */
+.section-number {
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible .section-number {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image clip reveal */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible .clip-reveal {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Stagger children inside a section */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible .stagger-children > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 80ms; }
+.fade-in.visible .stagger-children > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 160ms; }
+.fade-in.visible .stagger-children > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 240ms; }
+.fade-in.visible .stagger-children > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 320ms; }
+.fade-in.visible .stagger-children > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 400ms; }
+.fade-in.visible .stagger-children > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 480ms; }
+
+/* Navbar slide-down */
+@keyframes navbarSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-navbar {
+  animation: navbarSlideDown 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating messenger slide-in */
+@keyframes messengerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-messenger {
+  animation: messengerSlideIn 500ms cubic-bezier(0.16, 1, 0.3, 1) 800ms forwards;
+  opacity: 0;
 }
