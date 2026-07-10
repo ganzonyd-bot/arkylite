@@ -4,8 +4,8 @@ import Hero from "@/app/components/Hero";
 
 const About = dynamic(() => import("@/app/components/About"));
 const Process = dynamic(() => import("@/app/components/Process"));
-const TrustBar = dynamic(() => import("@/app/components/TrustBar"));
 const Services = dynamic(() => import("@/app/components/Services"));
+const TrustBar = dynamic(() => import("@/app/components/TrustBar"));
 const Projects = dynamic(() => import("@/app/components/Projects"));
 const Gallery = dynamic(() => import("@/app/components/Gallery"));
 const Testimonials = dynamic(() => import("@/app/components/Testimonials"));
@@ -22,8 +22,8 @@ export default function Home() {
       <Hero />
       <About />
       <Process />
-      <TrustBar />
       <Services />
+      <TrustBar />
       <Projects />
       <Gallery />
       <Testimonials />
