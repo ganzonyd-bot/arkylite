@@ -3,12 +3,12 @@ import Image from "next/image";
 import ScrollAnimation from "./ScrollAnimation";
 
 const PROJECTS = [
-  { title: "Residential Project", tag: "Design + Build", image: "/images/projects/project-2.jpg" },
-  { title: "Commercial Space", tag: "Architectural Design", image: "/images/projects/project-10.jpg" },
-  { title: "Industrial Facility", tag: "Engineering Consultancy", image: "/images/projects/project-13.jpg" },
-  { title: "Renovation Project", tag: "Construction", image: "/images/projects/project-16.jpg" },
-  { title: "Equipment Installation", tag: "Supply & Delivery", image: "/images/projects/project-19.jpg" },
-  { title: "Mixed-Use Development", tag: "Design + Build", image: "/images/projects/project-22.jpg" },
+  { title: "Residential Project", tag: "DESIGN + BUILD", image: "/images/projects/project-2.jpg" },
+  { title: "Commercial Space", tag: "DESIGN + BUILD", image: "/images/projects/project-10.jpg" },
+  { title: "Industrial Facility", tag: "DESIGN + BUILD", image: "/images/projects/project-13.jpg" },
+  { title: "Renovation Project", tag: "DESIGN + BUILD", image: "/images/projects/project-16.jpg" },
+  { title: "Equipment Installation", tag: "DESIGN + BUILD", image: "/images/projects/project-19.jpg" },
+  { title: "Mixed-Use Development", tag: "DESIGN + BUILD", image: "/images/projects/project-22.jpg" },
 ];
 
 function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
@@ -32,7 +32,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
         </h3>
         <a
           href="#contact"
-          className="shrink-0 text-[#7D7873] text-xs tracking-widest uppercase transition-colors duration-200 hover:text-[#4A4743]"
+          className="shrink-0 text-[#7D7873] text-sm md:text-xs tracking-widest uppercase transition-colors duration-200 hover:text-[#4A4743]"
         >
           View Project →
         </a>
@@ -66,7 +66,7 @@ export default function Projects() {
           <div className="flex justify-center mt-12">
             <Link
               href="/projects"
-              className="border-2 border-[#4A4743]/40 text-[#4A4743]/80 px-8 py-3 text-xs tracking-widest uppercase transition-all duration-300 hover:border-[#4A4743] hover:text-[#4A4743] hover:scale-[1.02]"
+              className="border-2 border-[#4A4743]/40 text-[#4A4743]/80 px-8 py-4 text-xs tracking-widest uppercase transition-all duration-300 hover:border-[#4A4743] hover:text-[#4A4743] hover:scale-[1.02]"
             >
               See All Projects
             </Link>

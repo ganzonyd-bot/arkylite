@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/app/components/Navbar";
 import Hero from "@/app/components/Hero";
 
+const Stats = dynamic(() => import("@/app/components/Stats"));
 const About = dynamic(() => import("@/app/components/About"));
 const Process = dynamic(() => import("@/app/components/Process"));
 const Services = dynamic(() => import("@/app/components/Services"));
@@ -20,6 +21,7 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <Stats />
       <About />
       <Process />
       <Services />

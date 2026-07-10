@@ -70,7 +70,7 @@ export default function Services() {
                   </p>
                   <a
                     href="#contact"
-                    className="inline-flex items-center text-[#7D7873] text-xs tracking-widest uppercase transition-colors duration-200 hover:text-[#4A4743]"
+                    className="inline-flex items-center text-[#7D7873] text-sm md:text-xs tracking-widest uppercase transition-colors duration-200 hover:text-[#4A4743]"
                   >
                     Know More
                     <span className="ml-1.5 transition-transform duration-200 group-hover:translate-x-1">

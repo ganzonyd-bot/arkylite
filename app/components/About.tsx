@@ -38,7 +38,7 @@ export default function About() {
             </div>
             <a
               href="#services"
-              className="inline-flex items-center mt-10 bg-[#4A4743] text-white px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#2B2926] hover:scale-[1.02]"
+              className="inline-flex items-center mt-10 bg-[#4A4743] text-white px-8 py-4 text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#2B2926] hover:scale-[1.02]"
             >
               Our Services
             </a>

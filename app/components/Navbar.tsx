@@ -44,6 +44,7 @@ export default function Navbar() {
               src="/images/logo/logo-icon.png"
               alt="Arkylite"
               fill
+              sizes="40px"
               className="object-contain"
             />
           </span>
@@ -73,7 +74,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden flex flex-col gap-1.5 p-3"
+          className="md:hidden flex flex-col gap-1.5 p-4"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >

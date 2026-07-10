@@ -60,7 +60,7 @@ export default function Gallery() {
           <div className="flex justify-center mt-12">
             <Link
               href="/gallery"
-              className="border-2 border-white/40 text-white/80 px-8 py-3 text-xs tracking-widest uppercase transition-all duration-300 hover:border-white hover:text-white hover:scale-[1.02]"
+              className="border-2 border-white/40 text-white/80 px-8 py-4 text-xs tracking-widest uppercase transition-all duration-300 hover:border-white hover:text-white hover:scale-[1.02]"
             >
               See All Projects
             </Link>

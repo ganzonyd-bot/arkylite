@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
+import ImageLightbox from "@/app/components/ImageLightbox";
 import Footer from "@/app/components/Footer";
 import FloatingMessenger from "@/app/components/FloatingMessenger";
 
@@ -13,7 +13,7 @@ export default function GalleryPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-[#2B2926] min-h-screen pt-20 md:pt-24 pb-16">
+      <main className="bg-[#2B2926] min-h-screen pt-16 md:pt-24 pb-16">
         <div className="max-w-6xl mx-auto px-6">
           <Link
             href="/"
@@ -28,22 +28,7 @@ export default function GalleryPage() {
             A visual look at our completed and ongoing work.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {IMAGES.map((img) => (
-              <div
-                key={img.src}
-                className="aspect-[4/3] overflow-hidden relative group"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+          <ImageLightbox images={IMAGES} />
         </div>
       </main>
       <Footer />
