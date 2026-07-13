@@ -41,7 +41,7 @@ export default function Gallery() {
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {IMAGES.slice(0, 10).map((img) => (
+            {IMAGES.slice(0, 10).map((img, i) => (
               <div
                 key={img.src}
                 className={`${img.span} aspect-[4/3] overflow-hidden relative group`}
@@ -52,6 +52,7 @@ export default function Gallery() {
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading={i === 0 ? "eager" : "lazy"}
                 />
               </div>
             ))}

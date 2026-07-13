@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import SplashScreen from "@/app/components/SplashScreen";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} scroll-smooth`}>
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col">
+        <SplashScreen />
+        {children}
+      </body>
     </html>
   );
 }

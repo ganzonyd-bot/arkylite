@@ -46,6 +46,7 @@ export default function Navbar() {
               fill
               sizes="40px"
               className="object-contain"
+              loading="eager"
             />
           </span>
           Arkylite<span className="font-light"> Design+Build</span>
