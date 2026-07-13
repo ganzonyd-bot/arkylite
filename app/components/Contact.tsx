@@ -45,9 +45,7 @@ export default function Contact() {
                     Email
                   </p>
                   <a
-                  href="https://mail.google.com/mail/u/0/#compose?to=arkylite.rset@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                    href="mailto:arkylite.rset@gmail.com"
                     className="text-[#4A4743] hover:text-[#7D7873] transition-colors duration-200"
                   >
                     arkylite.rset@gmail.com
@@ -83,9 +81,7 @@ export default function Contact() {
                   <span className="text-xs sm:text-sm tracking-normal sm:tracking-widest">Call 0995 034 2055</span>
                 </a>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&to=arkylite.rset@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:arkylite.rset@gmail.com"
                   className="flex items-center gap-4 w-full bg-[#4A4743] text-white px-6 py-4 text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#2B2926] hover:scale-[1.02]"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
