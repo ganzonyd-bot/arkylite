@@ -30,16 +30,17 @@ interface VideoEntry {
 }
 
 const VIDEOS: VideoEntry[] = [
-  { url: "https://web.facebook.com/share/r/14pyzd31yQc/", title: "Project Reel 1" },
-  { url: "https://web.facebook.com/share/v/1EdeADrAfY/", title: "Project Video 2" },
-  { url: "https://web.facebook.com/share/v/197JKZVBwZ/", title: "Project Video 3" },
-  { url: "https://web.facebook.com/share/v/1DKGR5tv1n/", title: "Project Video 4" },
-  { url: "https://web.facebook.com/share/v/19K5TABNuS/", title: "Project Video 5" },
-  { url: "https://web.facebook.com/share/r/1GyWa19f23/", title: "Project Reel 6" },
-  { url: "https://web.facebook.com/share/r/19EjbLYxVN/", title: "Project Reel 7" },
-  { url: "https://web.facebook.com/share/r/1EAHUFdDy5/", title: "Project Reel 8" },
-  { url: "https://web.facebook.com/share/r/1dW7QyzxvM/", title: "Project Reel 9" },
-  { url: "https://web.facebook.com/share/r/18JqBEmuhd/", title: "Project Reel 10" },
+  { url: "https://web.facebook.com/reel/1893603844616152/", title: "Project Reel 1" },
+  { url: "https://web.facebook.com/reel/1005261031918696/", title: "Project Reel 2" },
+  { url: "https://web.facebook.com/reel/2598454797263565/", title: "Project Reel 3" },
+  { url: "https://web.facebook.com/reel/868604082339294/", title: "Project Reel 4" },
+  { url: "https://web.facebook.com/reel/1554074339413022/", title: "Project Reel 5" },
+  { url: "https://web.facebook.com/reel/2066463024302351/", title: "Project Reel 6" },
+  { url: "https://web.facebook.com/reel/2145247052875047/", title: "Project Reel 7" },
+  { url: "https://web.facebook.com/reel/1517915193217625/", title: "Project Reel 8" },
+  { url: "https://web.facebook.com/reel/2526465537832981/", title: "Project Reel 9" },
+  { url: "https://web.facebook.com/reel/1015512947745483/", title: "Project Reel 10" },
+  { url: "https://web.facebook.com/reel/1024834100281107/", title: "Project Reel 11" },
 ];
 
 export default function GalleryPage() {
@@ -95,10 +96,10 @@ export default function GalleryPage() {
                   {VIDEOS.map((video, i) => (
                     <div key={i} className="aspect-video overflow-hidden relative bg-black/50">
                       <iframe
-                        src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(video.url)}&show_text=false`}
+                        src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(video.url)}&show_text=false&width=560`}
                         className="absolute inset-0 w-full h-full"
                         allowFullScreen
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                         loading="lazy"
                         title={video.title}
                       />
