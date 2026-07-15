@@ -92,7 +92,7 @@ export default function Contact() {
                 </a>
                 <a
                   href="mailto:arkylite.rset@gmail.com"
-                  className="flex items-center gap-4 w-full bg-[#4A4743] text-white px-6 py-4 text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#2B2926] hover:scale-[1.02]"
+                  className="flex items-center gap-4 w-full border-2 border-[#4A4743] text-[#4A4743] px-6 py-4 text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#4A4743] hover:text-white hover:scale-[1.02]"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
