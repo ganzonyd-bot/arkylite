@@ -2,7 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import ScrollAnimation from "./ScrollAnimation";
 
-const IMAGES = [
+interface GalleryItem {
+  src: string;
+  alt: string;
+  span: string;
+  type?: "image" | "video";
+}
+
+const ITEMS: GalleryItem[] = [
   { src: "/images/gallery/gallery-1.jpg", alt: "Project photo 1", span: "md:col-span-2 md:row-span-2" },
   { src: "/images/gallery/gallery-2.jpg", alt: "Project photo 2", span: "" },
   { src: "/images/gallery/gallery-3.jpg", alt: "Project photo 3", span: "" },
@@ -32,6 +39,13 @@ const IMAGES = [
 ];
 
 export default function Gallery() {
+  const FEATURED: GalleryItem[] = [
+    ...ITEMS.slice(0, 7),
+    { src: "", alt: "Project Reel 1", span: "", type: "video" },
+    { src: "", alt: "Project Reel 2", span: "", type: "video" },
+    { src: "", alt: "Project Reel 3", span: "", type: "video" },
+  ];
+
   return (
     <section id="gallery" className="bg-[#2B2926] py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
@@ -44,21 +58,42 @@ export default function Gallery() {
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {IMAGES.slice(0, 10).map((img, i) => (
-              <div
-                key={img.src}
-                className={`${img.span} aspect-[4/3] overflow-hidden relative group`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  loading={i === 0 ? "eager" : "lazy"}
-                />
-              </div>
-            ))}
+            {FEATURED.map((item, i) =>
+              item.type === "video" ? (
+                <Link
+                  key={`video-${i}`}
+                  href="/gallery"
+                  className="aspect-[4/3] overflow-hidden relative bg-black/60 flex items-center justify-center group"
+                >
+                  <svg
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className="opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <p className="absolute bottom-2 left-2 text-white/50 text-[10px] tracking-widest uppercase group-hover:text-white/90 transition-colors duration-200">
+                    Watch Reel
+                  </p>
+                </Link>
+              ) : (
+                <div
+                  key={item.src}
+                  className={`${item.span} aspect-[4/3] overflow-hidden relative group`}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading={i === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+              )
+            )}
           </div>
 
           <div className="flex justify-center mt-12">

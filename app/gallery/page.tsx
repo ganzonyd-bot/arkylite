@@ -92,11 +92,11 @@ export default function GalleryPage() {
                 Project walkthroughs, site updates, and more.
               </p>
               {VIDEOS.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="max-w-sm mx-auto space-y-8">
                   {VIDEOS.map((video, i) => (
-                    <div key={i} className="aspect-video overflow-hidden relative bg-black/50">
+                    <div key={i} className="aspect-[9/16] overflow-hidden relative bg-black/50">
                       <iframe
-                        src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(video.url)}&show_text=false&width=560`}
+                        src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(video.url)}&show_text=false&width=267`}
                         className="absolute inset-0 w-full h-full"
                         allowFullScreen
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
