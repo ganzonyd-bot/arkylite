@@ -20,13 +20,13 @@ export default function SplashScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#353330] ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#D5D0CA] ${
         leaving ? "animate-splash-leave" : ""
       }`}
       onAnimationEnd={handleAnimationEnd}
     >
       <div className="flex flex-col items-center -mt-16 md:mt-0">
-        <div className="relative w-32 h-32 md:w-40 md:h-40 mb-3">
+        <div className="relative w-48 h-48 md:w-64 md:h-64">
           <Image
             src="/images/logo/logo-icon.png"
             alt="Arkylite"
@@ -36,9 +36,7 @@ export default function SplashScreen() {
             priority
           />
         </div>
-        <h1 className="text-white text-2xl md:text-3xl font-semibold tracking-tight -mt-1">
-          Arkylite <span className="font-light">Design+Build</span>
-        </h1>
+
       </div>
     </div>
   );
