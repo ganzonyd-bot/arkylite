@@ -79,7 +79,7 @@ export default function Gallery() {
               href="/gallery"
               className="border-2 border-white/40 text-white/80 px-8 py-4 text-xs tracking-widest uppercase transition-all duration-300 hover:border-white hover:text-white hover:scale-[1.02]"
             >
-              See All Projects
+              Open Gallery
             </Link>
           </div>
         </ScrollAnimation>
