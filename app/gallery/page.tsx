@@ -7,10 +7,22 @@ import ImageLightbox from "@/app/components/ImageLightbox";
 import Footer from "@/app/components/Footer";
 import FloatingMessenger from "@/app/components/FloatingMessenger";
 
-const IMAGES = Array.from({ length: 23 }, (_, i) => ({
-  src: `/images/gallery/gallery-${i + 1}.jpg`,
-  alt: `Gallery photo ${i + 1}`,
-}));
+const IMAGES = [
+  ...Array.from({ length: 26 }, (_, i) => ({
+    src: `/images/gallery/gallery-${i + 1}.jpg`,
+    alt: `Gallery photo ${i + 1}`,
+  })),
+  { src: "/images/gallery/742362660_122173776932730152_2039494084442974680_n.jpg", alt: "Gallery photo 27" },
+  { src: "/images/gallery/742429441_122173776374730152_8013232902253390532_n.jpg", alt: "Gallery photo 28" },
+  { src: "/images/gallery/742684223_122173776344730152_6205196953189067169_n.jpg", alt: "Gallery photo 29" },
+  { src: "/images/gallery/742771221_122173776098730152_3134179668470169620_n.jpg", alt: "Gallery photo 30" },
+  { src: "/images/gallery/742859103_122173776980730152_3815781710115326169_n.jpg", alt: "Gallery photo 31" },
+  { src: "/images/gallery/743425423_122173777076730152_4849914365183130715_n.jpg", alt: "Gallery photo 32" },
+  { src: "/images/gallery/743497740_122173777634730152_1397926414788969398_n.jpg", alt: "Gallery photo 33" },
+  { src: "/images/gallery/743633195_122173777616730152_8166320623494690150_n.jpg", alt: "Gallery photo 34" },
+  { src: "/images/gallery/743777763_122173776926730152_2156799455612407488_n.jpg", alt: "Gallery photo 35" },
+  { src: "/images/gallery/744488387_122173776500730152_3477665604738018064_n.jpg", alt: "Gallery photo 36" },
+];
 
 interface VideoEntry {
   url: string;

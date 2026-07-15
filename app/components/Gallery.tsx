@@ -26,6 +26,9 @@ const IMAGES = [
   { src: "/images/gallery/gallery-21.jpg", alt: "Project photo 21", span: "" },
   { src: "/images/gallery/gallery-22.jpg", alt: "Project photo 22", span: "md:col-span-2" },
   { src: "/images/gallery/gallery-23.jpg", alt: "Project photo 23", span: "" },
+  { src: "/images/gallery/gallery-24.jpg", alt: "Project photo 24", span: "" },
+  { src: "/images/gallery/gallery-25.jpg", alt: "Project photo 25", span: "" },
+  { src: "/images/gallery/gallery-26.jpg", alt: "Project photo 26", span: "" },
 ];
 
 export default function Gallery() {
