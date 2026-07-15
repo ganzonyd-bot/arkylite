@@ -50,10 +50,10 @@ export default function Footer() {
               <li>Plaridel, Philippines 4306</li>
               <li>
                 <a
-                  href="tel:09950342055"
+                  href="tel:09283096283"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  0995 034 2055
+                  0928 309 6283
                 </a>
               </li>
               <li>
@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[#D6D2CD]/10 mt-6 pt-4 text-center text-[#D6D2CD] text-xs tracking-wider">
-          &copy; {new Date().getFullYear()} Arkylite Design + Build. All rights
+          &copy; 2023 Arkylite Design + Build. All rights
           reserved.
         </div>
       </div>

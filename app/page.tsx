@@ -9,7 +9,6 @@ const Services = dynamic(() => import("@/app/components/Services"));
 const TrustBar = dynamic(() => import("@/app/components/TrustBar"));
 const Projects = dynamic(() => import("@/app/components/Projects"));
 const Gallery = dynamic(() => import("@/app/components/Gallery"));
-const Testimonials = dynamic(() => import("@/app/components/Testimonials"));
 const FAQ = dynamic(() => import("@/app/components/FAQ"));
 const EstimateBanner = dynamic(() => import("@/app/components/EstimateBanner"));
 const Contact = dynamic(() => import("@/app/components/Contact"));
@@ -28,7 +27,6 @@ export default function Home() {
       <TrustBar />
       <Projects />
       <Gallery />
-      <Testimonials />
       <FAQ />
       <EstimateBanner />
       <Contact />

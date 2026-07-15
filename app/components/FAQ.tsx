@@ -6,11 +6,11 @@ import ScrollAnimation from "./ScrollAnimation";
 const FAQS = [
   {
     q: "What areas do you serve?",
-    a: "We are based in Plaridel, Bulacan and serve projects across Bulacan, Metro Manila, and nearby provinces. For larger commercial or industrial projects, we can coordinate nationwide.",
+    a: "We are based in Gumaca, Quezon Province and serve projects across Quezon, Metro Manila, and nearby provinces. For larger commercial or industrial projects, we can coordinate nationwide.",
   },
   {
     q: "Do you offer free estimates?",
-    a: "Yes. We provide free site consultations and estimates with no obligation. Contact us to schedule a visit and we will discuss your project scope, timeline, and budget.",
+    a: "We charge a minor fee for estimates and consultations. Contact us to schedule a visit and we will discuss your project scope, timeline, and budget.",
   },
   {
     q: "What types of projects do you handle?",
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "How long does a typical project take?",
-    a: "Timelines depend on scope and site conditions. A residential renovation may take 2–3 months, while a full commercial build can take 6–12 months. We provide a realistic schedule during the consultation.",
+    a: "Timelines depend on scope and site conditions. A residential renovation may take 3–4 months, new construction about 5–6 months, while a full commercial build can take 6–12 months. We provide a realistic schedule during the consultation.",
   },
   {
     q: "Can I supply my own materials?",

@@ -3,9 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 
 const STATS = [
-  { value: 15, suffix: "+", label: "Years of Experience" },
-  { value: 200, suffix: "+", label: "Projects Completed" },
-  { value: 100, suffix: "%", label: "Client Satisfaction" },
+  { value: 6, suffix: "+", label: "Years of Experience" },
+  { value: 25, suffix: "+", label: "Projects Completed" },
+  { value: 0, suffix: "", label: "Hidden Fees", prefix: "Zero" },
 ];
 
 export default function Stats() {
@@ -43,7 +43,7 @@ export default function Stats() {
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
 
-      setCounts(STATS.map((s) => Math.round(eased * s.value)));
+      setCounts(STATS.map((s) => (s.prefix ? 0 : Math.round(eased * s.value))));
 
       if (progress < 1) {
         requestAnimationFrame(animate);
@@ -60,8 +60,8 @@ export default function Stats() {
           {STATS.map((stat, i) => (
             <div key={stat.label}>
               <p className="text-[#4A4743] text-4xl md:text-5xl font-bold">
-                {counts[i]}
-                {stat.suffix}
+                {stat.prefix || counts[i]}
+                {!stat.prefix && stat.suffix}
               </p>
               <p className="text-[#7D7873] text-xs tracking-widest uppercase mt-2">
                 {stat.label}

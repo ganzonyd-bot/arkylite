@@ -19,10 +19,10 @@ export default function EstimateBanner() {
           Get a free consultation and site estimate — no obligation, no pressure.
         </p>
         <a
-          href="tel:09950342055"
+          href="tel:09283096283"
           className="shrink-0 inline-flex items-center border-2 border-[#ECE9E6] text-[#ECE9E6] px-6 py-4 text-xs tracking-widest uppercase transition-all duration-200 hover:border-transparent hover:bg-white/10"
         >
-          Call 0995 034 2055
+          Call 0928 309 6283
         </a>
       </div>
     </section></ScrollAnimation>
