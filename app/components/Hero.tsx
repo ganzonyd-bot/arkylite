@@ -26,6 +26,7 @@ export default function Hero() {
           sizes="100vw"
           fetchPriority={i === 0 ? "high" : undefined}
           loading={i === 0 ? "eager" : "lazy"}
+          priority={i === 0}
           className={`object-cover transition-opacity duration-1000 ${
             i === current ? "opacity-60" : "opacity-0"
           }`}
