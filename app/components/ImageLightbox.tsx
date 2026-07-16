@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import Image from "next/image";
 
 interface LightboxImage {
@@ -10,124 +10,98 @@ interface LightboxImage {
 
 interface ImageLightboxProps {
   images: LightboxImage[];
+  index: number;
+  onClose: () => void;
+  onPrev: () => void;
+  onNext: () => void;
 }
 
-export default function ImageLightbox({ images }: ImageLightboxProps) {
-  const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
-
-  const close = useCallback(() => setOpen(false), []);
-
-  const prev = useCallback(() => {
-    setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
-  }, [images.length]);
-
-  const next = useCallback(() => {
-    setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
-  }, [images.length]);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (!open) return;
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [open, prev, next, close]);
+export default function ImageLightbox({
+  images,
+  index,
+  onClose,
+  onPrev,
+  onNext,
+}: ImageLightboxProps) {
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") onPrev();
+      if (e.key === "ArrowRight") onNext();
+    },
+    [onClose, onPrev, onNext]
+  );
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [open]);
+  }, [handleKeyDown]);
 
   return (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-        {images.map((img, i) => (
-          <button
-            key={img.src}
-            onClick={() => {
-              setIndex(i);
-              setOpen(true);
-            }}
-            className="aspect-[4/3] overflow-hidden relative group w-full text-left cursor-pointer"
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-          </button>
-        ))}
+    <div
+      className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
+      onClick={onClose}
+    >
+      {/* Close */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        className="absolute top-4 right-4 text-white/60 hover:text-white text-3xl z-10 w-12 h-12 flex items-center justify-center transition-colors duration-300"
+        aria-label="Close"
+      >
+        &#x2715;
+      </button>
+
+      {/* Prev */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onPrev();
+        }}
+        className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-5xl z-10 w-12 h-12 flex items-center justify-center transition-colors duration-300"
+        aria-label="Previous"
+      >
+        &#8249;
+      </button>
+
+      {/* Next */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onNext();
+        }}
+        className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-5xl z-10 w-12 h-12 flex items-center justify-center transition-colors duration-300"
+        aria-label="Next"
+      >
+        &#8250;
+      </button>
+
+      {/* Image */}
+      <div
+        className="relative w-full h-full max-w-5xl max-h-[85vh] m-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Image
+          src={images[index].src}
+          alt={images[index].alt}
+          fill
+          className="object-contain"
+          sizes="100vw"
+          loading="eager"
+          priority
+        />
       </div>
 
-      {open && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
-          onClick={close}
-        >
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              close();
-            }}
-            className="absolute top-4 right-4 text-white/80 hover:text-white text-3xl z-10 w-12 h-12 flex items-center justify-center"
-            aria-label="Close"
-          >
-            &#x2715;
-          </button>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              prev();
-            }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-5xl z-10 w-12 h-12 flex items-center justify-center"
-            aria-label="Previous"
-          >
-            &#8249;
-          </button>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              next();
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-5xl z-10 w-12 h-12 flex items-center justify-center"
-            aria-label="Next"
-          >
-            &#8250;
-          </button>
-
-          <div
-            className="relative w-full h-full max-w-5xl max-h-[85vh] m-4"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={images[index].src}
-              alt={images[index].alt}
-              fill
-              className="object-contain"
-              sizes="100vw"
-              loading="eager"
-            />
-          </div>
-
-          <div className="absolute bottom-6 text-white/70 text-sm tracking-wider">
-            {index + 1} / {images.length}
-          </div>
-        </div>
-      )}
-    </>
+      {/* Counter */}
+      <div className="absolute bottom-6 text-white/50 text-sm tracking-wider">
+        {index + 1} / {images.length}
+      </div>
+    </div>
   );
 }

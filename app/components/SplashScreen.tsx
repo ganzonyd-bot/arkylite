@@ -8,7 +8,7 @@ export default function SplashScreen() {
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLeaving(true), 2000);
+    const timer = setTimeout(() => setLeaving(true), 800);
     return () => clearTimeout(timer);
   }, []);
 

@@ -1,37 +1,63 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const GALLERY_IMAGES = Array.from({ length: 8 }, (_, i) => `/images/gallery/gallery-${i + 1}.jpg`);
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
+  const [next, setNext] = useState<number | null>(null);
+  const [transitioning, setTransitioning] = useState(false);
+  const currentRef = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    timerRef.current = setInterval(() => {
+      const nextIdx = (currentRef.current + 1) % GALLERY_IMAGES.length;
+      setNext(nextIdx);
+      setTransitioning(true);
     }, 7000);
-    return () => clearInterval(timer);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!transitioning || next === null) return;
+    const timer = setTimeout(() => {
+      currentRef.current = next;
+      setCurrent(next);
+      setNext(null);
+      setTransitioning(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [transitioning, next]);
 
   return (
     <section id="hero" className="relative flex items-center bg-[#2B2926] overflow-hidden">
-      {GALLERY_IMAGES.map((src, i) => (
+      {/* Current image - fades out during transition */}
+      <Image
+        key={`curr-${current}`}
+        src={GALLERY_IMAGES[current]}
+        alt=""
+        fill
+        sizes="100vw"
+        priority
+        className={`object-cover ${transitioning ? "animate-hero-fade-out" : "opacity-60"}`}
+      />
+      {/* Next image - fades in during transition */}
+      {next !== null && (
         <Image
-          key={src}
-          src={src}
+          key={`next-${next}`}
+          src={GALLERY_IMAGES[next]}
           alt=""
           fill
           sizes="100vw"
-          fetchPriority={i === 0 ? "high" : undefined}
-          loading={i === 0 ? "eager" : "lazy"}
-          priority={i === 0}
-          className={`object-cover transition-opacity duration-1000 ${
-            i === current ? "opacity-60" : "opacity-0"
-          }`}
+          priority
+          className="object-cover animate-hero-fade-in"
         />
-      ))}
+      )}
       <div className="absolute inset-0 bg-[#2B2926]/20" />
       <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-20 w-full">
         <div className="hero-content text-center max-w-4xl mx-auto">
