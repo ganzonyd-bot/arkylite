@@ -16,9 +16,9 @@ const IMAGES = [
 ];
 
 const VIDEOS_FEATURED = [
-  { url: "https://web.facebook.com/reel/1893603844616152/", title: "Project Reel 1" },
-  { url: "https://web.facebook.com/reel/1005261031918696/", title: "Project Reel 2" },
-  { url: "https://web.facebook.com/reel/2598454797263565/", title: "Project Reel 3" },
+  { url: "https://web.facebook.com/reel/1024834100281107/", title: "Project Reel 11" },
+  { url: "https://web.facebook.com/reel/1015512947745483/", title: "Project Reel 10" },
+  { url: "https://web.facebook.com/reel/2526465537832981/", title: "Project Reel 9" },
 ];
 
 export default function Gallery() {
